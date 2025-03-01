@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Product;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -32,14 +35,16 @@ public class ProductController {
     public List<Product> getProducts(){
         return products.subList(4, 10);
     }
-    // lấy ra các sản phẩm theo id
+
+    // 1. Lấy thông tin chi tiết của một sản phẩm
     @GetMapping("/products/{id}")
-    public Product getProductById(@PathVariable String id){
+    public ResponseEntity<List<Product>> getProductById(@PathVariable String id){
+        List<Product> rs = new ArrayList<>();
         for (Product product: products){
-            if(product.getId().equals(id)){
-                return product;
+            if (product.getId().equals(id)){
+                rs.add(product);
             }
         }
-        return null;
+        return new ResponseEntity<>(products, HttpStatus.CREATED);
     }
 }
