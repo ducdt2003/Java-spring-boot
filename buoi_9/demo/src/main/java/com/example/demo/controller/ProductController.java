@@ -45,6 +45,57 @@ public class ProductController {
                 rs.add(product);
             }
         }
-        return new ResponseEntity<>(products, HttpStatus.CREATED);
+        return new ResponseEntity<>(rs, HttpStatus.CREATED);
+    }
+    // 2. Lấy sản phẩm với tên bắt đầu bằng prefix nào đó
+    @GetMapping("/products/name-starts/{prefix}")
+    public ResponseEntity<List<Product>> getProductByPrefix(@PathVariable String prefix){
+        List<Product> rs = new ArrayList<>();
+        for (Product product: products){
+            if (product.getName().startsWith(prefix)){
+                rs.add(product);
+            }
+        }
+        return ResponseEntity.ok(rs);
+    }
+
+    // 3. Lọc sản phẩm theo khoảng giá
+    @GetMapping("/products/price/{min}/{max}")
+    public ResponseEntity<List<Product>> getProductPriceMinMax(@PathVariable int min, @PathVariable int max){
+        List<Product> rs = new ArrayList<>();
+        for (Product product: products){
+            if (product.getPrice() >= min && product.getPrice() <= max){
+                rs.add(product);
+            }
+        }
+        return new ResponseEntity<>(rs, HttpStatus.CREATED);
+    }
+    // 4. lọc ra thương hiện
+    @GetMapping("/products/brand/{brand}")
+    public ResponseEntity<List<Product>> getProductByBrand (@PathVariable String brand){
+        List<Product> rs = new ArrayList<>();
+        for (Product product: products){
+            if (product.getBrand().equals(brand)){
+                rs.add(product);
+            }
+        }
+        return new ResponseEntity<>(rs, HttpStatus.CREATED);
+    }
+
+    // 5. Lấy sản phẩm có giá cao nhất
+    @GetMapping("/products/brand/{brand}/max-price")
+    public ResponseEntity<Product> getProductBrandMaxPrice(@PathVariable String brand){
+       Product productPrice = null;
+       int maxProductPirce = Integer.MIN_VALUE;
+       for (Product product: products){
+           if (product.getBrand().equals(brand) && product.getPrice() > maxProductPirce){
+               maxProductPirce = product.getPrice();
+               productPrice = product;
+           }
+       }
+       if (productPrice != null){
+           return ResponseEntity.ok(productPrice);
+       }
+       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
