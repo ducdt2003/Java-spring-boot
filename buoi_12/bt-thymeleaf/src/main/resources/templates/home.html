@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trang chính</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>View Thymeleaf</h2>
+<ul>
+    <li><a th:href="@{/groupPeopleByCity}">Liệt kê danh sách người theo thành phố</a></li>
+    <li><a th:href="@{/groupJobByCount}">Liệt kê danh sách nghề nghiệp và số người làm nghề đó</a></li>
+    <li><a th:href="@{/aboveAverageSalary}">Liệt kê người có mức lương cao hơn trung bình</a></li>
+    <li><a th:href="@{/longestName}">Hiển thị người có tên dài nhất</a></li>
+</ul>
+</body>
+</html>

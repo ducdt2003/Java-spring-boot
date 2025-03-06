@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Người có tên dài nhất</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Người có tên dài nhất</h2>
+<table border="1">
+    <tr>
+        <th>Họ tên</th>
+        <th>Nghề nghiệp</th>
+        <th>Thành phố</th>
+        <th>Lương</th>
+    </tr>
+    <tr th:if="${person != null}">
+        <td th:text="${person.fullName}"></td>
+        <td th:text="${person.job}"></td>
+        <td th:text="${person.city}"></td>
+        <td th:text="${person.salary}"></td>
+    </tr>
+</table>
+</body>
+</html>
