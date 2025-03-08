@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Person</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>Thông tin Person</h2>
+<p><strong>ID:</strong> <span th:text="${person.id}"></span></p>
+<p><strong>Họ và tên:</strong> <span th:text="${person.fullName}"></span></p>
+<p><strong>Công việc:</strong> <span th:text="${person.job}"></span></p>
+<p><strong>Giới tính:</strong> <span th:text="${person.gender}"></span></p>
+<p><strong>Thành phố:</strong> <span th:text="${person.city}"></span></p>
+<p><strong>Lương:</strong> <span th:text="${person.salary}"></span></p>
+<p><strong>Ngày sinh:</strong> <span th:text="${person.birthday}"></span></p>
+
+<h2>Người liên quan</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Họ và tên</th>
+        <th>Công việc</th>
+        <th>Giới tính</th>
+        <th>Thành phố</th>
+    </tr>
+    <tr th:each="p : ${relatedPersons}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.fullName}"></td>
+        <td th:text="${p.job}"></td>
+        <td th:text="${p.gender}"></td>
+        <td th:text="${p.city}"></td>
+    </tr>
+</table>
+</body>
+</html>

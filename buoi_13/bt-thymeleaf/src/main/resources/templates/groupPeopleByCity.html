@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách người theo thành phố</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Danh sách người theo thành phố</h2>
+
+<table border="1">
+    <tr>
+        <th>Thành phố</th>
+        <th>Danh sách người</th>
+    </tr>
+    <tr th:each="entry : ${groupedData}">
+        <td th:text="${entry.key}"></td>
+        <td>
+            <ul>
+                <li th:each="person : ${entry.value}" th:text="${person.fullName}"></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
