@@ -1,0 +1,321 @@
+/*
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+*//*
+
+*/
+/* Danh sách sản phẩm hiển thị ngang *//*
+*/
+/*
+
+.product-list {
+    display: flex;
+    justify-content: flex-start; *//*
+
+*/
+/* Hiển thị từ trái sang phải *//*
+*/
+/*
+
+    flex-wrap: nowrap; *//*
+
+*/
+/* Không xuống dòng *//*
+*/
+/*
+
+    gap: 15px; *//*
+
+*/
+/* Khoảng cách giữa các sản phẩm *//*
+*/
+/*
+
+    overflow-x: auto; *//*
+
+*/
+/* Cuộn ngang nếu quá nhiều sản phẩm *//*
+*/
+/*
+
+    padding: 20px;
+    white-space: nowrap;
+}
+
+*//*
+
+*/
+/* Kiểu của từng sản phẩm *//*
+*/
+/*
+
+.product {
+    background: white;
+    border-radius: 8px;
+    border: 2px solid #ff7b00; *//*
+
+*/
+/* Viền cam *//*
+*/
+/*
+
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-width: 220px; *//*
+
+*/
+/* Đảm bảo không bị quá nhỏ *//*
+*/
+/*
+
+    max-width: 220px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: normal;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+*//*
+
+*/
+/* Ảnh sản phẩm *//*
+*/
+/*
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+*//*
+
+*/
+/* Tên sản phẩm *//*
+*/
+/*
+
+.product h3 {
+    color: #333;
+    font-size: 14px;
+    margin: 10px 0;
+    min-height: 40px;
+}
+
+*//*
+
+*/
+/* Giá hiển thị *//*
+*/
+/*
+
+.price {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+*//*
+
+*/
+/* Giá gốc *//*
+*/
+/*
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+*//*
+
+*/
+/* Phần trăm giảm giá *//*
+*/
+/*
+
+.discount {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+*//*
+
+*/
+/* Đánh giá sao *//*
+*/
+/*
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #ff9900;
+    margin-top: 5px;
+}
+
+.rating i {
+    margin-right: 5px;
+}
+
+*//*
+
+*/
+/* Nút so sánh *//*
+
+
+.compare {
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.compare:hover {
+    text-decoration: underline;
+}
+*/
+/* General Style */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    /*background-color: #f9f9f9;*/
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+/* Search Bar */
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Product Image */
+.product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Name */
+.product h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 15px 0 10px 0;
+}
+
+/* Product Prices */
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 10px;
+}
+
+.discount {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Star Rating */
+.rating {
+    font-size: 16px;
+    color: #FFD700;
+    margin: 10px 0;
+}
+
+/* Details Button */
+.detail-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.detail-btn:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Chi Tiết Sản Phẩm</h1>
+<div class="product-detail">
+    <img th:src="${product.thumbnail}" alt="Ảnh sản phẩm">
+    <h2 th:text="${product.name}"></h2>
+    <p th:text="${product.description}"></p>
+    <p>Giá: <span th:text="${product.priceDiscount != null ? product.priceDiscount : product.price}"></span> VND</p>
+    <p>Đánh giá: <span th:text="${product.rating}"></span> ⭐</p>
+
+    <!-- Cập nhật đường dẫn đúng -->
+    <a th:href="@{/products}">Quay lại danh sách</a>
+</div>
+</body>
+</html>

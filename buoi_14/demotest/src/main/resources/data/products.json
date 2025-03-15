@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "name": "Đồng hồ Rolex",
+    "description": "Đồng hồ chính hãng, sang trọng",
+    "thumbnail": "https://example.com/rolex.jpg",
+    "price": 50000000,
+    "rating": 4.8,
+    "priceDiscount": 45000000
+  },
+  {
+    "id": 2,
+    "name": "MacBook Pro 2023",
+    "description": "Laptop mạnh mẽ cho công việc",
+    "thumbnail": "https://example.com/macbook.jpg",
+    "price": 32000000,
+    "rating": 4.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 3,
+    "name": "iPhone 14 Pro Max",
+    "description": "Điện thoại cao cấp của Apple",
+    "thumbnail": "https://example.com/iphone14.jpg",
+    "price": 34000000,
+    "rating": 4.7,
+    "priceDiscount": 33000000
+  },
+  {
+    "id": 4,
+    "name": "Sản phẩm 4",
+    "description": "Mô tả sản phẩm 4",
+    "thumbnail": "https://example.com/product4.jpg",
+    "price": 4000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 5,
+    "name": "Sản phẩm 5",
+    "description": "Mô tả sản phẩm 5",
+    "thumbnail": "https://example.com/product5.jpg",
+    "price": 5000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 6,
+    "name": "Sản phẩm 6",
+    "description": "Mô tả sản phẩm 6",
+    "thumbnail": "https://example.com/product6.jpg",
+    "price": 6000000,
+    "rating": 3.8,
+    "priceDiscount": 5400000
+  },
+  {
+    "id": 7,
+    "name": "Sản phẩm 7",
+    "description": "Mô tả sản phẩm 7",
+    "thumbnail": "https://example.com/product7.jpg",
+    "price": 7000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 8,
+    "name": "Sản phẩm 8",
+    "description": "Mô tả sản phẩm 8",
+    "thumbnail": "https://example.com/product8.jpg",
+    "price": 8000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 9,
+    "name": "Sản phẩm 9",
+    "description": "Mô tả sản phẩm 9",
+    "thumbnail": "https://example.com/product9.jpg",
+    "price": 9000000,
+    "rating": 4.7,
+    "priceDiscount": 8100000
+  },
+  {
+    "id": 10,
+    "name": "Sản phẩm 10",
+    "description": "Mô tả sản phẩm 10",
+    "thumbnail": "https://example.com/product10.jpg",
+    "price": 10000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 11,
+    "name": "Sản phẩm 11",
+    "description": "Mô tả sản phẩm 11",
+    "thumbnail": "https://example.com/product11.jpg",
+    "price": 11000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 12,
+    "name": "Sản phẩm 12",
+    "description": "Mô tả sản phẩm 12",
+    "thumbnail": "https://example.com/product12.jpg",
+    "price": 12000000,
+    "rating": 4.1,
+    "priceDiscount": 10800000
+  },
+  {
+    "id": 13,
+    "name": "Sản phẩm 13",
+    "description": "Mô tả sản phẩm 13",
+    "thumbnail": "https://example.com/product13.jpg",
+    "price": 13000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 14,
+    "name": "Sản phẩm 14",
+    "description": "Mô tả sản phẩm 14",
+    "thumbnail": "https://example.com/product14.jpg",
+    "price": 14000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 15,
+    "name": "Sản phẩm 15",
+    "description": "Mô tả sản phẩm 15",
+    "thumbnail": "https://example.com/product15.jpg",
+    "price": 15000000,
+    "rating": 3.5,
+    "priceDiscount": 13500000
+  },
+  {
+    "id": 16,
+    "name": "Sản phẩm 16",
+    "description": "Mô tả sản phẩm 16",
+    "thumbnail": "https://example.com/product16.jpg",
+    "price": 16000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 17,
+    "name": "Sản phẩm 17",
+    "description": "Mô tả sản phẩm 17",
+    "thumbnail": "https://example.com/product17.jpg",
+    "price": 17000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 18,
+    "name": "Sản phẩm 18",
+    "description": "Mô tả sản phẩm 18",
+    "thumbnail": "https://example.com/product18.jpg",
+    "price": 18000000,
+    "rating": 4.4,
+    "priceDiscount": 16200000
+  },
+  {
+    "id": 19,
+    "name": "Sản phẩm 19",
+    "description": "Mô tả sản phẩm 19",
+    "thumbnail": "https://example.com/product19.jpg",
+    "price": 19000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 20,
+    "name": "Sản phẩm 20",
+    "description": "Mô tả sản phẩm 20",
+    "thumbnail": "https://example.com/product20.jpg",
+    "price": 20000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 21,
+    "name": "Sản phẩm 21",
+    "description": "Mô tả sản phẩm 21",
+    "thumbnail": "https://example.com/product21.jpg",
+    "price": 21000000,
+    "rating": 3.8,
+    "priceDiscount": 18900000
+  },
+  {
+    "id": 22,
+    "name": "Sản phẩm 22",
+    "description": "Mô tả sản phẩm 22",
+    "thumbnail": "https://example.com/product22.jpg",
+    "price": 22000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 23,
+    "name": "Sản phẩm 23",
+    "description": "Mô tả sản phẩm 23",
+    "thumbnail": "https://example.com/product23.jpg",
+    "price": 23000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 24,
+    "name": "Sản phẩm 24",
+    "description": "Mô tả sản phẩm 24",
+    "thumbnail": "https://example.com/product24.jpg",
+    "price": 24000000,
+    "rating": 4.7,
+    "priceDiscount": 21600000
+  },
+  {
+    "id": 25,
+    "name": "Sản phẩm 25",
+    "description": "Mô tả sản phẩm 25",
+    "thumbnail": "https://example.com/product25.jpg",
+    "price": 25000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 26,
+    "name": "Sản phẩm 26",
+    "description": "Mô tả sản phẩm 26",
+    "thumbnail": "https://example.com/product26.jpg",
+    "price": 26000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 27,
+    "name": "Sản phẩm 27",
+    "description": "Mô tả sản phẩm 27",
+    "thumbnail": "https://example.com/product27.jpg",
+    "price": 27000000,
+    "rating": 4.1,
+    "priceDiscount": 24300000
+  },
+  {
+    "id": 28,
+    "name": "Sản phẩm 28",
+    "description": "Mô tả sản phẩm 28",
+    "thumbnail": "https://example.com/product28.jpg",
+    "price": 28000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 29,
+    "name": "Sản phẩm 29",
+    "description": "Mô tả sản phẩm 29",
+    "thumbnail": "https://example.com/product29.jpg",
+    "price": 29000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 30,
+    "name": "Sản phẩm 30",
+    "description": "Mô tả sản phẩm 30",
+    "thumbnail": "https://example.com/product30.jpg",
+    "price": 30000000,
+    "rating": 3.5,
+    "priceDiscount": 27000000
+  },
+  {
+    "id": 31,
+    "name": "Sản phẩm 31",
+    "description": "Mô tả sản phẩm 31",
+    "thumbnail": "https://example.com/product31.jpg",
+    "price": 31000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 32,
+    "name": "Sản phẩm 32",
+    "description": "Mô tả sản phẩm 32",
+    "thumbnail": "https://example.com/product32.jpg",
+    "price": 32000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 33,
+    "name": "Sản phẩm 33",
+    "description": "Mô tả sản phẩm 33",
+    "thumbnail": "https://example.com/product33.jpg",
+    "price": 33000000,
+    "rating": 4.4,
+    "priceDiscount": 29700000
+  },
+  {
+    "id": 34,
+    "name": "Sản phẩm 34",
+    "description": "Mô tả sản phẩm 34",
+    "thumbnail": "https://example.com/product34.jpg",
+    "price": 34000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 35,
+    "name": "Sản phẩm 35",
+    "description": "Mô tả sản phẩm 35",
+    "thumbnail": "https://example.com/product35.jpg",
+    "price": 35000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 36,
+    "name": "Sản phẩm 36",
+    "description": "Mô tả sản phẩm 36",
+    "thumbnail": "https://example.com/product36.jpg",
+    "price": 36000000,
+    "rating": 3.8,
+    "priceDiscount": 32400000
+  },
+  {
+    "id": 37,
+    "name": "Sản phẩm 37",
+    "description": "Mô tả sản phẩm 37",
+    "thumbnail": "https://example.com/product37.jpg",
+    "price": 37000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 38,
+    "name": "Sản phẩm 38",
+    "description": "Mô tả sản phẩm 38",
+    "thumbnail": "https://example.com/product38.jpg",
+    "price": 38000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 39,
+    "name": "Sản phẩm 39",
+    "description": "Mô tả sản phẩm 39",
+    "thumbnail": "https://example.com/product39.jpg",
+    "price": 39000000,
+    "rating": 4.7,
+    "priceDiscount": 35100000
+  },
+  {
+    "id": 40,
+    "name": "Sản phẩm 40",
+    "description": "Mô tả sản phẩm 40",
+    "thumbnail": "https://example.com/product40.jpg",
+    "price": 40000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  },
+  {
+    "id": 41,
+    "name": "Sản phẩm 41",
+    "description": "Mô tả sản phẩm 41",
+    "thumbnail": "https://example.com/product41.jpg",
+    "price": 41000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 42,
+    "name": "Sản phẩm 42",
+    "description": "Mô tả sản phẩm 42",
+    "thumbnail": "https://example.com/product42.jpg",
+    "price": 42000000,
+    "rating": 4.1,
+    "priceDiscount": 37800000
+  },
+  {
+    "id": 43,
+    "name": "Sản phẩm 43",
+    "description": "Mô tả sản phẩm 43",
+    "thumbnail": "https://example.com/product43.jpg",
+    "price": 43000000,
+    "rating": 4.4,
+    "priceDiscount": null
+  },
+  {
+    "id": 44,
+    "name": "Sản phẩm 44",
+    "description": "Mô tả sản phẩm 44",
+    "thumbnail": "https://example.com/product44.jpg",
+    "price": 44000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 45,
+    "name": "Sản phẩm 45",
+    "description": "Mô tả sản phẩm 45",
+    "thumbnail": "https://example.com/product45.jpg",
+    "price": 45000000,
+    "rating": 3.5,
+    "priceDiscount": 40500000
+  },
+  {
+    "id": 46,
+    "name": "Sản phẩm 46",
+    "description": "Mô tả sản phẩm 46",
+    "thumbnail": "https://example.com/product46.jpg",
+    "price": 46000000,
+    "rating": 3.8,
+    "priceDiscount": null
+  },
+  {
+    "id": 47,
+    "name": "Sản phẩm 47",
+    "description": "Mô tả sản phẩm 47",
+    "thumbnail": "https://example.com/product47.jpg",
+    "price": 47000000,
+    "rating": 4.1,
+    "priceDiscount": null
+  },
+  {
+    "id": 48,
+    "name": "Sản phẩm 48",
+    "description": "Mô tả sản phẩm 48",
+    "thumbnail": "https://example.com/product48.jpg",
+    "price": 48000000,
+    "rating": 4.4,
+    "priceDiscount": 43200000
+  },
+  {
+    "id": 49,
+    "name": "Sản phẩm 49",
+    "description": "Mô tả sản phẩm 49",
+    "thumbnail": "https://example.com/product49.jpg",
+    "price": 49000000,
+    "rating": 4.7,
+    "priceDiscount": null
+  },
+  {
+    "id": 50,
+    "name": "Sản phẩm 50",
+    "description": "Mô tả sản phẩm 50",
+    "thumbnail": "https://example.com/product50.jpg",
+    "price": 50000000,
+    "rating": 3.5,
+    "priceDiscount": null
+  }
+]

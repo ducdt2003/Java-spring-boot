@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sản Phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!-- Tiêu đề -->
+<h1>Danh Sách Sản Phẩm</h1>
+
+<!-- Form tìm kiếm -->
+<div class="search-container">
+    <form action="/products" method="get">
+        <input type="text" name="search" class="search-input" placeholder="Nhập tên sản phẩm..."
+               th:value="${search}">
+        <button type="submit" class="search-button">Tìm kiếm</button>
+    </form>
+</div>
+
+<!-- Danh sách sản phẩm -->
+<div class="product-list">
+    <div th:each="product : ${products}" class="product">
+        <img th:src="${product.thumbnail}" alt="Ảnh sản phẩm">
+        <h3 th:text="${product.name}"></h3>
+
+        <!-- Hiển thị giá -->
+        <p>
+            <span class="price" th:text="${product.price - (product.price * product.priceDiscount / 100)}"></span> VND
+            <span class="old-price" th:text="${product.price}"></span> VND
+            <span class="discount" th:text="${product.priceDiscount} + '%'"></span>
+        </p>
+
+        <!-- Đánh giá sao -->
+        <p class="rating">⭐ <span th:text="${product.rating}"></span></p>
+
+        <!-- Nút xem chi tiết -->
+        <a th:href="@{/products/{id}(id=${product.id})}" class="detail-btn">Xem Chi Tiết</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh Sách Sản Phẩm</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Danh Sách Sản Phẩm</h1>
+<div class="product-list">
+    <div th:each="product : ${products}" class="product">
+        <img th:src="${product.thumbnail}" alt="Ảnh sản phẩm">
+        <h3 th:text="${product.name}"></h3>
+        <p>Giá: <span th:text="${product.price}"></span> VND</p>
+        <p>Giảm giá: <span th:text="${product.priceDiscount}"></span> %</p>
+        <p>Đánh giá: <span th:text="${product.rating}"></span> ★</p>
+        <a th:href="@{/products/{id}(id=${product.id})}">Xem Chi Tiết</a>
+    </div>
+</div>
+
+&lt;!&ndash; Form tìm kiếm &ndash;&gt;
+<div class="search-container">
+    <form action="/products" method="get">
+        <input type="text" name="search" class="search-input" placeholder="Nhập tên sản phẩm..."
+               th:value="${search}">
+        <button type="submit" class="search-button">Tìm kiếm</button>
+    </form>
+</div>
+
+<div th:each="product : ${products}" class="product">
+    <img th:src="${product.thumbnail}" alt="Ảnh sản phẩm">
+    <h3 th:text="${product.name}"></h3>
+    <p>Giá: <span th:text="${product.price}"></span> VND</p>
+    <p>Giảm giá: <span th:text="${product.priceDiscount}"></span> %</p>
+    <p>Đánh giá: <span th:text="${product.rating}"></span> ★</p>
+    <a th:href="@{/products/{id}(id=${product.id})}">Xem Chi Tiết</a>
+</div>
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sản Phẩm</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .product { border: 1px solid #ddd; padding: 10px; margin: 10px; display: inline-block; width: 250px; text-align: center; }
+        .product img { width: 100px; height: 100px; object-fit: cover; }
+        .product a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+<h1>Danh Sách Sản Phẩm</h1>
+<div th:each="product : ${products}" class="product">
+    <img th:src="${product.thumbnail}" alt="Ảnh sản phẩm">
+    <h3 th:text="${product.name}"></h3>
+    <p>Giá: <span th:text="${product.price}"></span> VND</p>
+    <p>Giảm giá: <span th:text="${product.priceDiscount}"></span> %</p>
+    <p>Đánh giá: <span th:text="${product.rating}"></span> ★</p>
+    <a th:href="@{/products/{id}(id=${product.id})}">Xem Chi Tiết</a>
+</div>
+</body>
+</html>-->
