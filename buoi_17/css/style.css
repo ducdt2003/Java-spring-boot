@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.movie-poster {
+    height: 250px;
+}
+
+.movie-poster img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.review-author-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.article-date {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-horizontal img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 5px;
+}
+.card-body {
+    padding: 15px;
+}
