@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8"/>
@@ -51,73 +51,91 @@
         </nav>
 
         <div class="row">
+            <!-- Cột ảnh poster -->
             <div class="col-4">
                 <div class="movie-poster">
-                    <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                         alt="Đầu gấu đụng đầu đất">
+                    <img th:src="${movie.thumbnail}" th:alt="${movie.name}">
                 </div>
             </div>
-
+            <!-- Cột thông tin phim -->
             <div class="col-8">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h4>Đầu gấu đụng đầu đất</h4>
-                    <h5>7.5 ⭐️</h5>
-                </div>
-
-                <div class="bg-body-tertiary p-3">
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p class="fw-medium">Thể loại</p>
-                        </div>
-                        <div class="col-10">
-                            <p>Hài, Hành động</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn btn-danger mt-3 px-5">Xem phim</button>
+                <h2 th:text="${movie.name}"></h2>
+                <p th:text="'Đánh giá: ' + ${movie.rating} + '⭐️'"></p>
+                <p><strong>Thể loại:</strong> <span th:text="${movie.genre}"></span></p>
+                <p><strong>Năm:</strong> <span th:text="${movie.year}"></span></p>
+                <p><strong>Mô tả:</strong></p>
+                <p th:text="${movie.description}"></p>
             </div>
         </div>
+
+        <!--     <div class="row">
+                 <div class="col-4">
+                     <div class="movie-poster">
+                         <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
+                              alt="Đầu gấu đụng đầu đất">
+                     </div>
+                 </div>
+
+                 <div class="col-8">
+                     <div class="d-flex justify-content-between align-items-center mb-2">
+                         <h4>Đầu gấu đụng đầu đất</h4>
+                         <h5>7.5 ⭐️</h5>
+                     </div>
+
+                     <div class="bg-body-tertiary p-3">
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-2">
+                                 <p class="fw-medium">Thể loại</p>
+                             </div>
+                             <div class="col-10">
+                                 <p>Hài, Hành động</p>
+                             </div>
+                         </div>
+                     </div>
+
+                     <button class="btn btn-danger mt-3 px-5">Xem phim</button>
+                 </div>
+             </div>-->
 
         <div class="row">
             <h4>Tập phim</h4>

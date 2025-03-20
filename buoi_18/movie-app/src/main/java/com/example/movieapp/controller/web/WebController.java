@@ -12,15 +12,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class WebController {
     private final MovieService movieService;
 
     @GetMapping("/")
-    public String getHomePage() {
+    public String getHotMovies(Model model) {
+        List<Movie> hotMovies = movieService.findHotMovie(true, 4);
+        List<Movie> phimLeList = movieService.findByType(MovieType.PHIM_LE, true, 1, 6).getContent();
+        List<Movie> phimBoList = movieService.findByType(MovieType.PHIM_BO, true, 1, 6).getContent();
+        List<Movie> phimChieuRapList = movieService.findByType(MovieType.PHIM_CHIEU_RAP, true, 1, 6).getContent();
+        model.addAttribute("moviePage", hotMovies);
+        model.addAttribute("phimLeList", phimLeList);
+        model.addAttribute("phimBoList", phimBoList);
+        model.addAttribute("phimChieuRapList", phimChieuRapList);
         return "index";
     }
+
 
     @GetMapping("/phim-bo")
     public String getPhimBoPage(@RequestParam(defaultValue = "1") Integer page,
@@ -51,10 +62,24 @@ public class WebController {
         return "phim-chieu-rap";
     }
 
-        @GetMapping("/phim/{id}/{slug}")
+    /*    @GetMapping("/phim/{id}/{slug}")
         public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug) {
             return "chi-tiet-phim";
+        }*/
 
+    @GetMapping("/phim/{id}/{slug}")
+    public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
+        // Gọi Service để tìm chi tiết phim
+        Movie movie = movieService.findMovieDetails(id, slug);
+        if (movie == null) {
+            // Nếu không tìm thấy phim, trả về trang lỗi
+            return "error";
         }
+        // Thêm thông tin phim vào Model để truyền tới view
+        model.addAttribute("movie", movie);
 
-        }
+        // Trả về tên file HTML: chi-tiet-phim.html
+        return "chi-tiet-phim";
+    }
+
+}

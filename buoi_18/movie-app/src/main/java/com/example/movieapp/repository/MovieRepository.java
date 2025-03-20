@@ -50,4 +50,9 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findByStatusTrue();
 
     Page<Movie> findByTypeAndStatus(MovieType type, Boolean status, Pageable pageable);
+
+    @Query(value = "select * from movies where status = ?1 order by rating desc limit ?2", nativeQuery = true)
+    List<Movie> findHotMovie(Boolean status, Integer limit);
+
+    Movie findByIdAndSlugAndStatus(Integer id, String slug, boolean status);
 }
