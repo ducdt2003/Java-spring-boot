@@ -67,19 +67,58 @@ public class WebController {
             return "chi-tiet-phim";
         }*/
 
-    @GetMapping("/phim/{id}/{slug}")
+    /*@GetMapping("/phim/{id}/{slug}")
     public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
-        // Gọi Service để tìm chi tiết phim
+        // Gọi Service để lấy chi tiết phim
         Movie movie = movieService.findMovieDetails(id, slug);
+
         if (movie == null) {
-            // Nếu không tìm thấy phim, trả về trang lỗi
+            // Trả về trang lỗi nếu không tìm thấy phim
             return "error";
         }
-        // Thêm thông tin phim vào Model để truyền tới view
+
+        // Truyền thông tin phim vào Model để sử dụng trong View
         model.addAttribute("movie", movie);
 
-        // Trả về tên file HTML: chi-tiet-phim.html
+        // Trả về file HTML để hiển thị
+        return "chi-tiet-phim";
+    }*/
+
+  /*  @GetMapping("/phim/{id}/{slug}")
+    public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
+        Movie movie = movieService.findMovieDetails(id, slug);
+        if (movie == null) {
+            return "error";
+        }
+        model.addAttribute("movie", movie);
+        return "chi-tiet-phim";
+    }*/
+
+    @GetMapping("/phim/{id}/{slug}")
+    public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
+        Movie movie = movieService.findMovieDetails(id, slug);
+        if (movie == null) {
+            return "error";
+        }
+        model.addAttribute("movie", movie);
+
+        // Lấy danh sách phim liên quan
+        List<Movie> relatedMovies = movieService.findRelatedMovies(movie.getType());
+        model.addAttribute("relatedMovies", relatedMovies);
+
         return "chi-tiet-phim";
     }
+
+
+   /* @GetMapping("/phim/{id}/{slug}")
+    public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
+        Movie movie = movieService.findMovieDetails(id, slug);
+        if (movie == null) {
+            // Trả về trang lỗi nếu không tìm thấy phim
+            return "error";
+        }
+        model.addAttribute("movie", movie);
+        return "chi-tiet-phim";
+    }*/
 
 }

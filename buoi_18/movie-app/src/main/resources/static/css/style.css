@@ -28,3 +28,24 @@ img {
     border-radius: 50%;
     object-fit: cover;
 }
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tăng bóng khi hover */
+}
+
+.card-title {
+    font-size: 1rem;
+    text-transform: capitalize; /* Làm chữ cái đầu viết hoa */
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover; /* Giúp ảnh vừa khít */
+}
+h3 {
+    text-align: left;
+}

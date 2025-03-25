@@ -29,7 +29,13 @@ public class MovieService {
     }
 
     public Movie findMovieDetails(Integer id, String slug) {
+        // Tìm phim bằng ID, Slug và Status = true
         return movieRepository.findByIdAndSlugAndStatus(id, slug, true);
+    }
+
+    public List<Movie> findRelatedMovies(MovieType type) {
+        Pageable pageable = PageRequest.of(0, 6); // Lấy 6 phim liên quan
+        return movieRepository.findRelatedMovies(type, pageable);
     }
 
 
