@@ -1,3 +1,4 @@
+/*
 
 // Hàm format ngày theo định dạng dd/MM/yyyy
 const formatDate = (dateStr) => {
@@ -10,35 +11,56 @@ const formatDate = (dateStr) => {
     return `${day}/${month}/${year}`;
 };
 
-// Hàm render danh sách reviews sử dụng template string
 const renderReviews = (reviews) => {
-    const html = reviews.map(review => `
-        <div class="review-item">
-            <div class="review-author d-flex justify-content-between">
-                <div class="d-flex">
-                    <div class="review-author-avatar">
-                        <img src="${review.user.avatar || 'https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg'}" alt="">
+    if (!Array.isArray(reviews) || reviews.length === 0) {
+        console.warn("Không có đánh giá nào để hiển thị.");
+        document.querySelector('.review-list').innerHTML = "<p>Chưa có đánh giá nào.</p>";
+        return;
+    }
+
+    const html = reviews.map(review => {
+        const user = review.user || {};
+        const avatar = user.avatar || 'https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg';
+        const displayName = user.displayName || "Người dùng ẩn danh";
+        const rating = review.rating ? `⭐️ ${review.rating}/10` : "Chưa có đánh giá";
+        const content = review.content || "Không có nội dung";
+        const formattedDate = review.createdAt ? formatDate(review.createdAt) : "Không xác định";
+
+        return `
+            <div class="review-item">
+                <div class="review-author d-flex justify-content-between">
+                    <div class="d-flex">
+                        <div class="review-author-avatar">
+                            <img src="${avatar}" alt="Avatar">
+                        </div>
+                        <div class="ms-3">
+                            <p class="fw-semibold">${displayName}</p>
+                            <p>${rating}</p>
+                        </div>
                     </div>
-                    <div class="ms-3">
-                        <p class="fw-semibold">${review.user.displayName}</p>
-                        <p>⭐️ ${review.rating}/10</p>
+                    <div>
+                        <p>${formattedDate}</p>
                     </div>
                 </div>
-                <div>
-                    <p>${formatDate(review.createdAt)}</p>
+                <div class="review-content mt-3">
+                    <p>${content}</p>
+                </div>
+                <div class="review-actions mt-2">
+                    <button class="btn btn-sm btn-primary" onclick="editReview(${review.id})">Sửa</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteReview(${review.id})">Xóa</button>
                 </div>
             </div>
-            <div class="review-content mt-3">
-                <p>${review.content}</p>
-            </div>
-            <div class="review-actions mt-2">
-                <button class="btn btn-sm btn-primary">Sửa</button>
-                <button class="btn btn-sm btn-danger" onclick="deleteReview(${review.id})">Xóa</button>
-            </div>
-        </div>
-    `).join('');
-    document.querySelector('.review-list').innerHTML = html;
+        `;
+    }).join('');
+
+    const reviewList = document.querySelector('.review-list');
+    if (reviewList) {
+        reviewList.innerHTML = html;
+    } else {
+        console.error("Không tìm thấy phần tử .review-list trong DOM.");
+    }
 };
+
 
 // Hàm render phân trang sử dụng template string
 const renderPagination = (totalPages, currentPage) => {
@@ -103,7 +125,9 @@ const deleteReview = async (id) => {
     }
 };
 
-/* ---- Xử lý tạo review ---- */
+*/
+/* ---- Xử lý tạo review ---- *//*
+
 const reviewForm = document.getElementById("review-form");
 const reviewContentEl = document.getElementById("review-content");
 
@@ -195,4 +219,62 @@ reviewForm.addEventListener("submit", async (event) => {
 });
 
 // Khởi chạy load trang đầu tiên
-getReviews(1);
+getReviews(1);*/
+document.addEventListener("DOMContentLoaded", function () {
+    const reviewForm = document.getElementById("review-form");
+    const reviewContent = document.getElementById("review-content");
+    const reviewList = document.querySelector(".review-list");
+
+    // Xử lý rating
+    let selectedRating = 10; // Mặc định là 10
+    document.querySelectorAll(".star").forEach((star) => {
+        star.addEventListener("click", function () {
+            selectedRating = this.getAttribute("data-rating");
+            document.getElementById("rating-value").innerText = `⭐️ ${selectedRating}/10`;
+        });
+    });
+
+    // Xử lý sự kiện submit bình luận
+    reviewForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn chặn reload trang
+
+        const content = reviewContent.value.trim();
+        if (content === "") {
+            alert("Vui lòng nhập nội dung bình luận.");
+            return;
+        }
+
+        // Lấy ngày hiện tại
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}/${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/${currentDate.getFullYear()}`;
+
+        // Tạo HTML cho bình luận mới
+        const newReview = `
+            <div class="review-item">
+                <div class="review-author d-flex justify-content-between">
+                    <div class="d-flex">
+                        <div class="review-author-avatar">
+                            <img src="https://yt3.googleusercontent.com/b_j7mPLTnqs5ziD0d8CQO2dIqive_FxeiMDtrQat0mGxWSLUw7Mv2rfvJPMngHVPBcY_dxALPA=s160-c-k-c0x00ffffff-no-rj" alt="">
+                        </div>
+                        <div class="ms-3">
+                            <p class="fw-semibold">Bạn</p>
+                            <p>⭐️ ${selectedRating}/10</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>${formattedDate}</p>
+                    </div>
+                </div>
+                <div class="review-content mt-3">
+                    <p>${content}</p>
+                </div>
+            </div>
+        `;
+
+        // Thêm bình luận mới vào danh sách
+        reviewList.insertAdjacentHTML("afterbegin", newReview);
+
+        // Xóa nội dung textarea sau khi gửi
+        reviewContent.value = "";
+    });
+});
