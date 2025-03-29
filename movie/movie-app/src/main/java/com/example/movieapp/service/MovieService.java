@@ -27,11 +27,7 @@ public class MovieService {
         return moviePage;
     }
 
-    public Movie findMovieDetails(Integer id, String slug) {
-        return movieRepository.findByIdAndSlugAndStatus(id, slug, true);
-    }
-    public List<Movie> findRelatedMovies(MovieType type) {
-        Pageable pageable = PageRequest.of(0, 6); // Lấy 6 phim liên quan
-        return movieRepository.findRelatedMovies(type, pageable);
-    }
+        public Movie findMovieDetails(Integer id, String slug) {
+            return movieRepository.findByIdAndSlugAndStatus(id, slug, true);
+        }
 }

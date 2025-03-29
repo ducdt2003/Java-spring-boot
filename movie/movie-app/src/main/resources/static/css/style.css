@@ -96,3 +96,14 @@ h3 {
 .star.active {
     color: #EDBB0E;
 }
+.movie-poster img {
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .movie-info h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .episode-list a {
+      font-weight: 500;
+    }

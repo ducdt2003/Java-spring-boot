@@ -1,7 +1,9 @@
 package com.example.movieapp.controller.web;
 
+import com.example.movieapp.entity.Episode;
 import com.example.movieapp.entity.Movie;
 import com.example.movieapp.model.enums.MovieType;
+import com.example.movieapp.service.EpisodeService;
 import com.example.movieapp.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,6 +20,7 @@ import java.util.List;
 public class WebController {
     private final MovieService movieService;
 
+    private final EpisodeService episodeService;
     @GetMapping("/")
     public String getHotMovies(Model model) {
         List<Movie> hotMovies = movieService.findHotMovie(true, 4);
@@ -61,7 +64,7 @@ public class WebController {
         return "phim-chieu-rap";
     }
 
-    @GetMapping("/phim/{id}/{slug}")
+    /*@GetMapping("/phim/{id}/{slug}")
     public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
         Movie movie = movieService.findMovieDetails(id, slug);
         if (movie == null) {
@@ -74,5 +77,18 @@ public class WebController {
         model.addAttribute("relatedMovies", relatedMovies);
 
         return "chi-tiet-phim";
+    }*/
+
+    @GetMapping("/phim/{id}/{slug}")
+    public String getMovieDetailsPage(@PathVariable Integer id, @PathVariable String slug, Model model) {
+        // Lay thong tin movie
+        Movie movie = movieService.findMovieDetails(id, slug);
+        model.addAttribute("movie", movie);
+
+        // Lay danh sách tập phim cua phim bo (lay theo movieId, status = true, sorting theo displayOrder asc)
+        List<Episode> episodes = episodeService.findEpisodesByMovieId(id);
+        model.addAttribute("episodes", episodes);
+        return "chi-tiet-phim";
     }
+
 }

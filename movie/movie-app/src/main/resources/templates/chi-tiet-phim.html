@@ -463,6 +463,75 @@
         </div>
     </div>
 </section>-->
+<!--<section class="py-4">
+    <div class="container">
+        &lt;!&ndash; Breadcrumb &ndash;&gt;
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="/phim-bo">Phim bộ</a></li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="${movie.name}">Tên phim</li>
+            </ol>
+        </nav>
+
+        &lt;!&ndash; Thông tin chi tiết phim &ndash;&gt;
+        <div class="row">
+            <div class="col-4">
+                <div class="movie-poster">
+                    <img class="img-fluid"
+                         th:src="${movie.thumbnail != null ? movie.thumbnail : '/images/default-thumbnail.png'}"
+                         th:alt="${movie.name}"
+                         data-bs-toggle="modal" data-bs-target="#trailerModal">
+                </div>
+            </div>
+            <div class="col-8 position-relative">
+                <div class="position-absolute top-0 end-0">
+                    <p><span th:text="${movie.rating}"></span> <span>⭐️</span></p>
+                </div>
+                <h2 th:text="${movie.name}">Tên phim</h2>
+                <p th:text="${movie.description}">Mô tả phim</p>
+                <p><strong>Thể loại:</strong> <span th:text="${movie.type}">Thể loại phim</span></p>
+                <p><strong>Ngày phát hành:</strong> <span th:text="${movie.publishedAt}">Ngày phát hành</span></p>
+                <p>
+                    <strong>Trạng thái:</strong>
+                    <span th:if="${movie.status}" th:text="'Đang chiếu'"></span>
+                    <span th:unless="${movie.status}" th:text="'Đã kết thúc'"></span>
+                </p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal">Xem trailer</button>
+            </div>
+        </div>
+
+        &lt;!&ndash; Danh sách tập phim &ndash;&gt;
+        <div class="mt-4">
+            <h4>
+                Danh sách tập phim (Tổng: <span th:text="${#lists.size(episodes)}"></span> tập)
+            </h4>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-3" th:each="episode : ${episodes}">
+                    <a th:href="@{/xem-phim/{id}/{slug}/{tap}(id=${movie.id}, slug=${movie.slug}, tap=${episode.displayOrder})}"
+                       class="btn btn-outline-primary w-100">
+                        Tập <span th:text="${episode.displayOrder}"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        &lt;!&ndash; Modal Bootstrap &ndash;&gt;
+        <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="trailerModalLabel" th:text="${movie.name}">Trailer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe th:src="${movie.trailer}" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
 <section class="py-4">
     <div class="container">
         <!-- Breadcrumb -->
@@ -476,7 +545,6 @@
 
         <!-- Thông tin chi tiết phim -->
         <div class="row">
-            <!-- Cột ảnh poster -->
             <div class="col-4">
                 <div class="movie-poster">
                     <img class="img-fluid"
@@ -485,22 +553,43 @@
                          data-bs-toggle="modal" data-bs-target="#trailerModal">
                 </div>
             </div>
-
-            <!-- Thông tin chi tiết phim -->
             <div class="col-8 position-relative">
-                <!-- Xếp hạng hiển thị trên cùng bên phải -->
                 <div class="position-absolute top-0 end-0">
                     <p><span th:text="${movie.rating}"></span> <span>⭐️</span></p>
                 </div>
                 <h2 th:text="${movie.name}">Tên phim</h2>
                 <p th:text="${movie.description}">Mô tả phim</p>
-                <p><strong>Thể loại:</strong> <span th:text="${movie.type}">Thể loại phim</span></p>
-                <p><strong>Ngày phát hành:</strong> <span th:text="${movie.publishedAt}">Ngày phát hành</span></p>
-                <p><strong>Trạng thái:</strong>
-                    <span th:if="${movie.status}" th:text="'Đang chiếu'">Trạng thái</span>
-                    <span th:unless="${movie.status}" th:text="'Đã kết thúc'">Trạng thái</span>
+                <p>
+                    <strong>Thể loại:</strong>
+                    <span th:text="${movie.type}">Thể loại phim</span>
                 </p>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal">Xem trailer</button>
+                <p>
+                    <strong>Ngày phát hành:</strong>
+                    <span th:text="${movie.publishedAt}">Ngày phát hành</span>
+                </p>
+                <p>
+                    <strong>Trạng thái:</strong>
+                    <span th:if="${movie.status}" th:text="'Đang chiếu'"></span>
+                    <span th:unless="${movie.status}" th:text="'Đã kết thúc'"></span>
+                </p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal">
+                    Xem trailer
+                </button>
+            </div>
+        </div>
+
+        <!-- Danh sách tập phim chỉ hiển thị khi phim thuộc thể loại "Phim bộ" -->
+        <div class="mt-4" th:if="${movie.type == 'Phim bộ'}">
+            <h4>
+                Danh sách tập phim (Tổng: <span th:text="${#lists.size(episodes)}"></span> tập)
+            </h4>
+            <div class="row">
+                <div class="col-md-3 col-6 mb-3" th:each="episode : ${episodes}">
+                    <a th:href="@{/xem-phim/{id}/{slug}/{tap}(id=${movie.id}, slug=${movie.slug}, tap=${episode.displayOrder})}"
+                       class="btn btn-outline-primary w-100">
+                        Tập <span th:text="${episode.displayOrder}"></span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -520,6 +609,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 <!--<section class="py-4 bg-body-tertiary">
@@ -828,3 +919,5 @@
 <script th:src="@{/js/movie-detail.js}"></script>
 </body>
 </html>
+
+
